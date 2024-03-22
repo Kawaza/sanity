@@ -9,7 +9,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <h1 className="text-3x1 font-bold underline">
+        <h1 className="text-3x1 underline">
           Tailwind!
         </h1>
         <a

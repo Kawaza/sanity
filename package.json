@@ -16,6 +16,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "watch": "tailwindcss build -i ./src/index.css",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
