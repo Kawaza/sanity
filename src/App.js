@@ -9,6 +9,9 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
+        <h1 className="text-3x1 font-bold underline">
+          Tailwind!
+        </h1>
         <a
           className="App-link"
           href="https://reactjs.org"
