@@ -1,6 +1,4 @@
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import { Transition } from '@headlessui/react'
-import logo from '../images/logo.png'; 
 import logotwo from '../images/logo2.png'; 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -15,15 +13,15 @@ function Navbar() {
   return (
     <>
       <div>
-        <div className='bg-zinc-900 h-24 flex items-center justify-between'>
+        <div className='h-24 flex items-center justify-between fixed top-0 left-0 w-ful z-50 w-full'>
             <img src={logotwo} className='w-48 mx-6'/>
           <Link to='#' className='ml-8 text-3xl'>
             <Bars3Icon className="h-6 w-6 text-white mx-9" onClick={showSidebar} />
           </Link>
         </div>
-        <nav className={sidebar ? 'nav-menu active bg-zinc-950 ' : 'nav-menu bg-zinc-950 w-64 h-screen flex justify-center fixed top-0'}>
+        <nav className={sidebar ? 'nav-menu active bg-gray-800 z-50' : 'nav-menu z-50 bg-gray-800 w-64 h-screen flex justify-center fixed top-0'}>
           <ul className='nav-menu-items w-full px-10 p-3' onClick={showSidebar}>
-            <li className='navbar-toggle bg-zinc-950 w-full h-20 flex items-center mx-4 mb-10'>
+            <li className='navbar-toggle bg-gray-800 w-full h-20 flex items-center mx-4 mb-24'>
                 <img src={logotwo} className='w-48'/>
               <Link to='#' className='menu-bars'>
                 <XMarkIcon className="h-6 w-6 text-white"/>
@@ -31,7 +29,7 @@ function Navbar() {
             </li>
             {SidebarData.map((item, index) => {
               return (
-                <li key={index} className="flex items-center h-16 text-white">
+                <li key={index} className={sidebar ? 'flex items-center h-16 text-white transition-transform duration-1000 transform translate-y-[-60%] delay-200' : 'transition-transform duration-1000 transform translate-y-[+60%] delay-200 flex items-center h-16 text-white'}>
                   <Link to={item.path} className="no-underline text-gray-500 font-bold text-2xl h-full flex hover:text-white">
                     {item.icon}
                     <span className='ml-4'>{item.title}</span>
