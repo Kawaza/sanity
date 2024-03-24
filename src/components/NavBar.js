@@ -1,4 +1,4 @@
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import logotwo from '../images/logo2.png'; 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -29,7 +29,7 @@ function Navbar() {
             </li>
             {SidebarData.map((item, index) => {
               return (
-                <li key={index} className={sidebar ? 'flex items-center h-16 text-white transition-transform duration-1000 transform translate-y-[-60%] delay-200' : 'transition-transform duration-1000 transform translate-y-[+60%] delay-200 flex items-center h-16 text-white'}>
+                <li key={index} className={sidebar ? 'mx-4 flex items-center h-16 text-white transition-transform duration-1000 transform translate-y-[-60%] delay-200' : 'mx-4transition-transform duration-1000 transform translate-y-[+60%] delay-200 flex items-center h-16 text-white'}>
                   <Link to={item.path} className="no-underline text-gray-500 font-bold text-2xl h-full flex hover:text-white">
                     {item.icon}
                     <span className='ml-4'>{item.title}</span>
