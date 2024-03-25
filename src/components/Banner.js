@@ -29,6 +29,7 @@ function Banner() {
                   <SocialIcon target="_blank" url="https://github.com/Kawaza" bgColor="white" fgColor="black" network="github" style={{ height: 50, width: 50 }} className="md:mb-2 banner-icons"/>
                   <SocialIcon target="_blank" url="https://www.linkedin.com/in/aaronbenn/" bgColor="white" fgColor="black" network="linkedin" style={{ height: 50, width: 50 }} className="md:mt-2 banner-icons"/>
                 </div>
+              
         </div>
       </>
     );

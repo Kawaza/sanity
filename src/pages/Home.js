@@ -8,7 +8,7 @@ export default function Home() {
     return (
         <div>
             <Banner />
-            <section className="bg-gray-800 py-2 pt-20">
+            <section className="bg-gray-900 py-2 pt-20">
                 <h2 className="text-4xl md:text-5xl font-bold mb-8 text-white text-center">
                     About <span className="blue-text leading-snug">Me</span>
                 </h2>
@@ -44,7 +44,7 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <section className="bg-gray-900 pt-20 pb-1">
+            <section className="bg-gray-900 pb-1">
                     <h2 className="text-4xl md:text-5xl font-bold mb-8 text-white text-center">
                         My <span className="blue-text leading-snug">Skills</span>
                     </h2>
@@ -102,10 +102,11 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <section className="bg-gray-800 py-20">
+            <section className="bg-gray-900 py-20">
                     <h2 className="text-4xl md:text-5xl font-bold mb-8 text-white text-center">
-                        My <span className="blue-text leading-snug">Experience</span>
+                        More <span className="blue-text leading-snug">About</span> Me
                     </h2>
+                    <p className="pb-16 mx-auto max-w-3xl text-center px-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In placerat lacus quis tincidunt fermentum. Nulla malesuada.</p>
                     <Experience></Experience>
             </section>
         </div>

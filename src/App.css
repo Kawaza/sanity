@@ -7,7 +7,7 @@
 
 /*Defaults*/
 h1,h2,h3,h4,h5, body {font-family: "Poppins", sans-serif; font-weight: 600;}
-p {font-family: "Poppins", sans-serif; font-weight: 300;}
+p {font-family: "Poppins", sans-serif; font-weight: 300; color:#bcc3d3}
 .blue-text {
   color: var(--customblue);
   margin-left: 0px;
@@ -88,4 +88,10 @@ span {
 
 
 /*HOMEPAGE*/
-.custom-border {border-color: var(--customblue); box-shadow: 0 0 6px 2px var(--customblue); /* Blue glowing box shadow */}
+.custom-border {
+  border-image: linear-gradient(to right, #f6b73c00, var(--customblue), #f6b73c00) 20;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 5px;
+  background-color: #0b101c;
+}
