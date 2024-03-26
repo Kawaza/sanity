@@ -28,19 +28,20 @@ span {
   background: none;
 }
 .nav-menu {
-  width: 500px;
+  width: 0px;
   height: 100vh;
   display: flex;
   justify-content: center;
   position: fixed;
   top: 0;
-  right: -110%;
-  transition: 2s;
+  right: 0;
+  transition: width 1s ease-in-out;
+  overflow:hidden
 }
 .nav-menu.active {
-  right: 0;
-  transition: 850ms;
+  width: 500px;
 }
+
 .nav-text {
   display: flex;
   justify-content: start;
@@ -66,9 +67,8 @@ span {
 }
 
 /*banner*/
-.icons {
-  column-gap: 16px;
-}
+.icon-hover:hover svg {stroke: var(--customblue);}
+.icon-line {background-color: var(--customblue)}
 .banner-max-width {max-width: 100rem}
 .banner-text-width {
   max-width: 44rem;

@@ -2,7 +2,7 @@ import React from "react";
 import Banner from "../components/Banner";
 import Experience from "../components/Experience";
 import { Html5Original, Css3Original, JavascriptOriginal, WordpressPlain, ReactOriginal, TailwindcssOriginal, DiscordjsOriginal, PhpPlain, GitOriginal   } from 'devicons-react';
-
+import homepageimage from "../images/homepageImage.png"
 
 export default function Home() {
     return (
@@ -23,6 +23,12 @@ export default function Home() {
                         <div className="line mt-4"></div>
                     </div>
                     <div>
+                           
+                        {/* <img
+                            className=""
+                            src={homepageimage} // Replace with your image URL
+                            alt="Banner"
+                        /> */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div className="custom-border border rounded-md p-4">
                             <h3 className="text-center py-3 text-5xl blue-text">5+</h3>
