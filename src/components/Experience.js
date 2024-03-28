@@ -4,7 +4,7 @@ function Experience() {
     return (
       <>
         <div className="container px-10 py-10 text-white mx-auto items-center mb-40">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-40">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-20 md:gap-40">
                   <div>
                   <h3 className="text-3xl md:text-4xl mb-4 text-white text-left pb-6">My Education</h3>
                     <div className="pb-10">

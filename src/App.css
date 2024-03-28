@@ -20,6 +20,7 @@ span {
   width: 160px;
   height: 4px;
 }
+.w-fit {width: fit-content;}
 
 /*Navigation*/
 .menu-bars {
@@ -60,7 +61,7 @@ span {
 }
 
 @media (max-width: 768px) {
-  .nav-menu {
+  .nav-menu.active {
     width: 100%;
     transition: 1s;
   }
@@ -94,4 +95,8 @@ span {
   border-style: solid;
   border-radius: 5px;
   background-color: #0b101c;
+}
+@media (max-width: 1300px) and (min-width: 982px) {
+  .adjust-text-size {font-size: 6vw}
+  .adjust-gap-size {gap: 1rem;}
 }
