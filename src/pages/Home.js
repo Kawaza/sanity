@@ -1,8 +1,9 @@
 import React, { useRef, useEffect, useState } from "react";
 import Banner from "../components/Banner";
 import Experience from "../components/Experience";
+import Project from "../components/Projects"
 import { Html5Original, Css3Original, JavascriptOriginal, WordpressPlain, ReactOriginal, TailwindcssOriginal, DiscordjsOriginal, PhpPlain, GitOriginal   } from 'devicons-react';
-// import { FaArrowRightLong } from "react-icons/fa6";
+
 
 export default function Home() {
 
@@ -66,8 +67,8 @@ export default function Home() {
                             <span className="blue-text leading-snug">Let's Create</span> <br/>
                             <span>Something Great.</span>
                         </h3>
-                        <p className="pb-4 leading-7">Hello, My name is Aaron, and I'm a Web Developer in Edmonton Alberta. I have strong expertise in Web Development from designing to deployment and I love to help groups and businesses bring their ideas to life.</p>
-                        <p className="pb-4 leading-7">I love creating things and I have a lot of side projects I work on for fun, my biggest one being my discord bot. However, if I'm not busy working on those I'm playing games, or off camping with friends and family.</p>
+                        <p className="pb-5 leading-7 text-lg">Hello, My name is Aaron, and I'm a Web Developer in Edmonton Alberta. I have strong expertise in Web Development from designing to deployment and I love to help groups and businesses bring their ideas to life.</p>
+                        <p className="pb-4 leading-7 text-lg">I love creating things and I have a lot of side projects I work on for fun, my biggest one being my discord bot. However, if I'm not busy working on those I'm playing games, or off camping with friends and family.</p>
 
                         <div className="line mt-6"></div>
                     </div>
@@ -90,7 +91,7 @@ export default function Home() {
                                 <div class="text-300 bold text-xl self-center ml-4">Successful <br/> Projects</div>
                             </div>
                         </div>
-                        <p className="py-4 leading-7 pb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In placerat lacus quis tincidunt fermentum. Nulla malesuada.</p>
+                        <p className="py-4 leading-7 pb-6 text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In placerat lacus quis tincidunt fermentum. Nulla malesuada.</p>
                     </div>
                 </div>
             </FadeInOnScroll>
@@ -157,7 +158,7 @@ export default function Home() {
                 </div>
             </FadeInOnScroll>
             </section>
-            <section className="bg-gray-900 py-20">
+            <section className="bg-gray-900 pt-10 md:pt-20 py-1">
                 <FadeInOnScroll>
                 <div className="">
                     <h2 className="text-4xl md:text-5xl font-bold mb-8 text-white text-center">
@@ -167,6 +168,12 @@ export default function Home() {
                         <Experience></Experience>
                     </div>
                  </FadeInOnScroll>
+            </section>
+
+            <section>
+                <FadeInOnScroll>
+                    <Project></Project>
+                </FadeInOnScroll>
             </section>
         </div>
     )

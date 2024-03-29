@@ -12,6 +12,10 @@ p {font-family: "Poppins", sans-serif; font-weight: 300; color:#bcc3d3}
   color: var(--customblue);
   margin-left: 0px;
 }
+.hover-blue-text:hover {
+  color: var(--customblue);
+  margin-left: 0px;
+}
 span {
   margin-left: 0px !important;
 }
@@ -21,6 +25,8 @@ span {
   height: 4px;
 }
 .w-fit {width: fit-content;}
+.shadow {box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);}
+.no-drag {pointer-events: none;}
 
 /*Navigation*/
 .menu-bars {
@@ -87,6 +93,28 @@ span {
   }
 }
 
+/*SLIDER*/
+.react-multiple-carousel__arrow--right {right: 0;}
+.react-multiple-carousel__arrow--left {left: 0;}
+.react-multiple-carousel__arrow--left:hover, .react-multiple-carousel__arrow--right:hover {
+  background-color: var(--customblue);
+}
+.react-multiple-carousel__arrow--left:hover:before, .react-multiple-carousel__arrow--right:hover:before {
+  color: black;
+}
+.react-multiple-carousel__arrow--left, .react-multiple-carousel__arrow--right {
+  transition: opacity 0.15s ease;
+  width: 50px;
+  height: 50px;
+  z-index: 9999999;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  box-shadow: var(--shadow-1);
+  background-color: #0b101c;
+  border: 0;
+  z-index: 9999999;
+}
 
 /*HOMEPAGE*/
 .custom-border {
@@ -94,6 +122,9 @@ span {
   border-width: 1px;
   border-style: solid;
   border-radius: 5px;
+  background-color: #0b101c;
+}
+.custom-background {
   background-color: #0b101c;
 }
 @media (max-width: 1300px) and (min-width: 982px) {
