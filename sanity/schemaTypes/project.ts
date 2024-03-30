@@ -13,16 +13,12 @@ export default {
             type: "image",
         },
         {
-            name: "date",
-            type: "datetime",
-        },
-        {
-            name: "place",
-            type: "string",
-        }, 
-        {
             name: "description",
             type: "text",
+        },
+        {
+            name: "builtWith",
+            type: "string"
         },
         {
             name: "projectType",

@@ -16,7 +16,7 @@ import 'react-multi-carousel/lib/styles.css';
         },
         tablet: {
         breakpoint: { max: 1024, min: 464 },
-        items: 2
+        items: 1
         },
         mobile: {
         breakpoint: { max: 464, min: 0 },
@@ -35,7 +35,7 @@ import 'react-multi-carousel/lib/styles.css';
       
         useEffect(() => {
           client
-            .fetch(`*[_type == "Project"]{title, description, "imageUrl": image.asset->url}`)
+            .fetch(`*[_type == "Project"] | order(_createdAt asc) {title, description, builtWith, "imageUrl": image.asset->url}`)
             .then((data) => {
             console.log(data); // Log the entire response
               setProject(data);
@@ -46,24 +46,29 @@ import 'react-multi-carousel/lib/styles.css';
         }, []);
       
         return (
-            <section className="bg-gray-900 pb-1">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-20 text-white text-center ">
-                        My <span className="blue-text leading-snug">Projects</span>
-                    </h2>
                     <div className="slider-container container mx-auto pb-20">
-                        <Carousel responsive={responsive} swipeable={true} draggable={true} ssr={true} infinite={true}>
+                        <Carousel 
+                            responsive={responsive} 
+                            swipeable={true} 
+                            draggable={true} 
+                            ssr={true} 
+                            infinite={true} 
+                            showDots={true} 
+                            removeArrowOnDeviceType={["mobile"]}
+                            dotListClass="custom-dot-list-style"
+                            className="pb-0 md:pb-6"
+                        >
                                 {projects.map((project) => (
                                     <div className="px-4 py-4">
-                                        <div className={`px-8 py-8 rounded-2xl custom-background cursor-pointer ${project.title}`} key={project.title}>
+                                        <div className={`custom-border px-8 py-8 rounded-2xl custom-background cursor-pointer ${project.title}`} key={project.title}>
                                             <img className="rounded-2xl shadow w-full" src={project.imageUrl} alt={project.title} />
-                                            <div>{project.builtWith}</div>
-                                            <h3 className="text-white leading text-2xl pt-4 hover-blue-text duration-300">{project.description}</h3>
+                                            <h4 className="blue-text leading text-sm pt-6 pb-3 uppercase">{project.builtWith}</h4>
+                                            <h3 className="text-white leading-9 text-2xl pt-2 hover-blue-text duration-300">{project.description}</h3>
                                         </div>
                                     </div>
                                 ))}
                         </Carousel>
                     </div>
-          </section>
         );
       };
       

@@ -36,7 +36,7 @@ function Experience() {
                       <p className="text-lg leading-7">After university I did freelance work on the side for a coffee shop in Edmonton, a discord bot for Kritcal Mass (an Edmonton based esports company) and a website for an up-an-coming daycare called Brightden.</p>
                     </div>
                     
-                    <div className="pb-10">
+                    <div className="pb-0">
                       <p className="text-lg font-normal pb-1 text-white">2021-Present</p>
                       <h4 className="blue-text text-xl pb-6">Frontend Developer • eCommerce Canada </h4>
                       <p className="text-lg leading-7">I was hired back in 2021 as the Junior Frontend developer and over the years I have had the chance to grow and create amazing websites for clients in the process.

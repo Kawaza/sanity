@@ -21,7 +21,7 @@ export default function Home() {
               }
             },
             {
-              threshold: isMobile() ? 0 : 0.5, // Trigger when 50% of the component is visible
+              threshold: isMobile() ? 0 : 0.3, // Trigger when 50% of the component is visible
             }
           );
       
@@ -73,12 +73,6 @@ export default function Home() {
                         <div className="line mt-6"></div>
                     </div>
                     <div>
-                           
-                        {/* <img
-                            className=""
-                            src={homepageimage} // Replace with your image URL
-                            alt="Banner"
-                        /> */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 adjust-gap-size">
                         <div class="flex align-center">
                                 <div class="display-2 mg-right-12px text-6xl md:text-8xl blue-text adjust-text-size self-center">5</div>
@@ -99,7 +93,7 @@ export default function Home() {
             <section className="bg-gray-900 pb-1">
                 <FadeInOnScroll>
                 <div className="">
-                <h2 className="text-4xl md:text-5xl font-bold mb-8 text-white text-center">
+                <h2 className="text-4xl md:text-5xl font-bold mb-10 text-white text-center">
                         My <span className="blue-text leading-snug">Skills</span>
                     </h2>
                     <div className="container px-10 py-1 text-white grid mx-auto gap-10 md:gap-40 items-center mb-24">
@@ -170,7 +164,10 @@ export default function Home() {
                  </FadeInOnScroll>
             </section>
 
-            <section>
+            <section className="bg-gray-900 pb-1">
+                    <h2 className="text-4xl md:text-5xl font-bold mb-10 text-white text-center ">
+                        My <span className="blue-text leading-snug">Projects</span>
+                    </h2>
                 <FadeInOnScroll>
                     <Project></Project>
                 </FadeInOnScroll>

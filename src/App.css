@@ -3,6 +3,7 @@
 /*Variables*/
 :root {
   --customblue: #00AEEF;
+  --darkblue: rgb(12 16 26);
 }
 
 /*Defaults*/
@@ -11,6 +12,9 @@ p {font-family: "Poppins", sans-serif; font-weight: 300; color:#bcc3d3}
 .blue-text {
   color: var(--customblue);
   margin-left: 0px;
+}
+.bg-gray-1000 {
+  background-color: var(--darkblue);
 }
 .hover-blue-text:hover {
   color: var(--customblue);
@@ -71,6 +75,7 @@ span {
     width: 100%;
     transition: 1s;
   }
+  .mobile-bg-gray-1000 {background-color: var(--darkblue);}
 }
 
 /*banner*/
@@ -98,9 +103,7 @@ span {
 .react-multiple-carousel__arrow--left {left: 0;}
 .react-multiple-carousel__arrow--left:hover, .react-multiple-carousel__arrow--right:hover {
   background-color: var(--customblue);
-}
-.react-multiple-carousel__arrow--left:hover:before, .react-multiple-carousel__arrow--right:hover:before {
-  color: black;
+  border-color: var(--customblue)
 }
 .react-multiple-carousel__arrow--left, .react-multiple-carousel__arrow--right {
   transition: opacity 0.15s ease;
@@ -111,9 +114,18 @@ span {
   transform: translateY(-50%);
   border-radius: 50%;
   box-shadow: var(--shadow-1);
-  background-color: #0b101c;
+  background-color: var(--darkblue);
   border: 0;
-  z-index: 9999999;
+  z-index: 3;
+  transition: 300ms;
+  border: 2px solid white;
+}
+.react-multiple-carousel__arrow--left:hover:before, .react-multiple-carousel__arrow--right:hover:before {
+  color: black;
+}
+.react-multi-carousel-dot--active button {
+  background: var(--customblue);
+  border-color: var(--customblue);
 }
 
 /*HOMEPAGE*/
@@ -130,4 +142,8 @@ span {
 @media (max-width: 1300px) and (min-width: 982px) {
   .adjust-text-size {font-size: 6vw}
   .adjust-gap-size {gap: 1rem;}
+}
+@media (max-width: 980px) {
+  .react-multiple-carousel__arrow--right {right: 10px;}
+  .react-multiple-carousel__arrow--left {left: 10px;}
 }
