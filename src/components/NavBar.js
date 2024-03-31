@@ -26,7 +26,7 @@ function Navbar() {
     <>
       <div>
         <div className={mobile ?'h-24 flex items-center justify-between fixed top-0 left-0 w-ful z-50 w-full mobile-bg-gray-1000 bg-gray-1000 duration-300' : 'h-24 flex items-center justify-between fixed top-0 left-0 w-ful z-50 w-full bg-transparent duration-300'}>
-            <img src={logotwo} className='w-48 mx-6'/>
+          <a href="/"> <img src={logotwo} className='w-48 mx-6'/> </a>
           <Link to='#' className='ml-8 text-3xl'>
             <Bars3Icon className="h-6 w-6 text-white mx-9" onClick={showSidebar} />
           </Link>
@@ -34,7 +34,7 @@ function Navbar() {
         <nav className={sidebar ? 'nav-menu active bg-gray-1000 z-50' : 'nav-menu z-50 bg-gray-1000 w-64 h-screen flex justify-center fixed top-0'}>
           <ul className='nav-menu-items w-full px-10 p-3' onClick={showSidebar}>
             <li className='navbar-toggle bg-gray-1000 w-full h-20 flex items-center mx-4 mb-24'>
-                <img src={logotwo} className='w-48'/>
+                <a href="/"> <img src={logotwo} className='w-48'/> </a>
               <Link to='#' className='menu-bars'>
                 <XMarkIcon className="h-6 w-6 text-white"/>
               </Link>
