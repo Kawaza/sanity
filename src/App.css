@@ -16,10 +16,16 @@ p {font-family: "Poppins", sans-serif; font-weight: 300; color:#bcc3d3}
 .bg-gray-1000 {
   background-color: var(--darkblue);
 }
+.hover-blue-background:hover {
+  background-color: var(--customblue);
+  border-color: var(--customblue);
+}
 .hover-blue-text:hover {
   color: var(--customblue);
   margin-left: 0px;
 }
+.smaller-container {max-width: 1400px;}
+.custom-grid {grid-template-columns: 60% 40%;}
 span {
   margin-left: 0px !important;
 }
@@ -114,11 +120,10 @@ span {
   transform: translateY(-50%);
   border-radius: 50%;
   box-shadow: var(--shadow-1);
-  background-color: var(--darkblue);
+  background-color: #334155;
   border: 0;
   z-index: 3;
   transition: 300ms;
-  border: 2px solid white;
 }
 .react-multiple-carousel__arrow--left:hover:before, .react-multiple-carousel__arrow--right:hover:before {
   color: black;
@@ -127,6 +132,13 @@ span {
   background: var(--customblue);
   border-color: var(--customblue);
 }
+.arrow-stroke {
+  stroke: white;
+  stroke-width: 1px;
+}
+.project:hover h3 {color: var(--customblue);}
+.project:hover h3 .arrow-stroke { stroke: var(--customblue); opacity: 1; bottom: 4px}
+.project:hover h3 .arrow-stroke svg  {height: 1.5rem;}
 
 /*HOMEPAGE*/
 .custom-border {

@@ -9,11 +9,27 @@ export default {
             type: "string",
         },
         {
+            name: "slug",
+            type: "string"
+        },
+        {
             name: "image",
             type: "image",
         },
         {
+            name: "bannerimage",
+            type: "image",
+        },
+        {
             name: "description",
+            type: "text",
+        },
+        {
+            name: "projectDescription",
+            type: "text",
+        },
+        {
+            name: "techDescription",
             type: "text",
         },
         {

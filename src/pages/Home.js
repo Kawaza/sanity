@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import Banner from "../components/Banner";
 import Experience from "../components/Experience";
 import Project from "../components/Projects"
+import Footer from "../components/Footer"
 import { Html5Original, Css3Original, JavascriptOriginal, WordpressPlain, ReactOriginal, TailwindcssOriginal, DiscordjsOriginal, PhpPlain, GitOriginal   } from 'devicons-react';
 
 

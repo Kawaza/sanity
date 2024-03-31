@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import { createClient } from "@sanity/client";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import { ArrowUpRightIcon } from '@heroicons/react/24/solid'
      
 
     const responsive = {
@@ -35,7 +36,7 @@ import 'react-multi-carousel/lib/styles.css';
       
         useEffect(() => {
           client
-            .fetch(`*[_type == "Project"] | order(_createdAt asc) {title, description, builtWith, "imageUrl": image.asset->url}`)
+            .fetch(`*[_type == "Project"] | order(_createdAt asc) {title, slug, description, builtWith, "imageUrl": image.asset->url}`)
             .then((data) => {
             console.log(data); // Log the entire response
               setProject(data);
@@ -60,11 +61,16 @@ import 'react-multi-carousel/lib/styles.css';
                         >
                                 {projects.map((project) => (
                                     <div className="px-4 py-4">
-                                        <div className={`custom-border px-8 py-8 rounded-2xl custom-background cursor-pointer ${project.title}`} key={project.title}>
+                                        <a href={`/projects/${project.slug}`}>
+                                        <div className={`project custom-border px-8 py-8 rounded-2xl custom-background cursor-pointer ${project.title}`} key={project.title}>
                                             <img className="rounded-2xl shadow w-full" src={project.imageUrl} alt={project.title} />
                                             <h4 className="blue-text leading text-sm pt-6 pb-3 uppercase">{project.builtWith}</h4>
-                                            <h3 className="text-white leading-9 text-2xl pt-2 hover-blue-text duration-300">{project.description}</h3>
+                                            <h3 className="text-white leading-9 text-2xl pt-2 duration-300 relative duration-300">
+                                            {project.description}
+                                            <span className="absolute pt-2 pl-3 arrow-stroke duration-200 opacity-0 bottom-0"><ArrowUpRightIcon className="h-0 duration-300" /></span>
+                                            </h3>
                                         </div>
+                                        </a>
                                     </div>
                                 ))}
                         </Carousel>
