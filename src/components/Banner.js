@@ -6,7 +6,7 @@ function Banner() {
  
     return (
       <>
-        <div className="relative mobile-banner-size md:h-screen">
+        <div className="relative mobile-banner-size md:h-screen" id="banner">
             {/* Banner image */}
             <img
                 className="object-cover w-full h-full"
@@ -33,6 +33,11 @@ function Banner() {
                     </a>
                     <a class="icon-hover transition hover:-translate-y-1 hover:text-target " target="_blank" href="https://www.linkedin.com/in/aaronbenn/" rel="noreferrer">
                       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    </a>
+                    <a class="icon-hover transition hover:-translate-y-1 hover:text-target "target="_blank" href="mailto:aaronbenndesigns@gmail.com" rel="noreferrer">
+                      <svg class="text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m3.5 5.5 7.893 6.036a1 1 0 0 0 1.214 0L20.5 5.5M4 19h16a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Z"/>
+                      </svg>
                     </a>
                     <div class="icon-line mt-4 h-32 w-[4px] origin-bottom bg-target bg-white"></div>
                   </div>

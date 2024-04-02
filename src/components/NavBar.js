@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
 import '../App.css';
+import { HashLink } from 'react-router-hash-link';
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
@@ -25,7 +26,7 @@ function Navbar() {
   return (
     <>
       <div>
-        <div className={mobile ?'h-24 flex items-center justify-between fixed top-0 left-0 w-ful z-50 w-full mobile-bg-gray-1000 bg-gray-1000 duration-300' : 'h-24 flex items-center justify-between fixed top-0 left-0 w-ful z-50 w-full bg-transparent duration-300'}>
+        <div className={mobile ?'h-24 flex items-center justify-between fixed top-0 left-0 w-ful z-50 w-full mobile-bg-gray-1000 duration-300' : 'h-24 flex items-center justify-between fixed top-0 left-0 w-ful z-50 w-full bg-transparent duration-300'}>
           <a href="/"> <img src={logotwo} className='w-48 mx-6'/> </a>
           <Link to='#' className='ml-8 text-3xl'>
             <Bars3Icon className="h-6 w-6 text-white mx-9" onClick={showSidebar} />
@@ -41,11 +42,11 @@ function Navbar() {
             </li>
             {SidebarData.map((item, index) => {
               return (
-                <li key={index} className={sidebar ? 'mx-4 flex items-center h-16 text-white transition-transform duration-1000 transform translate-y-[-60%] delay-200' : 'mx-4 transition-transform duration-1000 transform translate-y-[+60%] delay-200 flex items-center h-16 text-white'}>
-                  <Link to={item.path} className="no-underline text-gray-500 font-bold text-2xl h-full flex hover:text-white">
+                <li key={index} className={sidebar ? 'mx-4 flex items-center h-16 text-white transition-transform duration-1000 transform translate-y-[-60%] delay-500' : 'mx-4 transition-transform duration-1000 transform translate-y-[+60%] delay-1000 flex items-center h-16 text-white'}>
+                  <HashLink  to={item.path} className="no-underline text-gray-500 font-bold text-2xl h-full flex hover:text-white">
                     {item.icon}
-                    <span className='ml-4'>{item.title}</span>
-                  </Link>
+                    <span className='ml-4 whitespace-nowrap'>{item.title}</span>
+                  </HashLink >
                 </li>
               );
             })}

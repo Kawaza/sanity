@@ -36,7 +36,7 @@ import { ArrowUpRightIcon } from '@heroicons/react/24/solid'
       
         useEffect(() => {
           client
-            .fetch(`*[_type == "Project"] | order(_createdAt asc) {title, slug, description, builtWith, "imageUrl": image.asset->url}`)
+            .fetch(`*[_type == "Project" && homepage == true] | order(_createdAt asc) {title, slug, description, builtWith, "imageUrl": image.asset->url}`)
             .then((data) => {
             console.log(data); // Log the entire response
               setProject(data);

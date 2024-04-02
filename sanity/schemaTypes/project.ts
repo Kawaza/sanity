@@ -36,6 +36,7 @@ export default {
             name: "builtWith",
             type: "string"
         },
+    
         {
             name: "projectType",
             title: "Project Type",
@@ -51,6 +52,11 @@ export default {
         {
             name: "link",
             type: "url",
+        },
+        {
+            title: 'Show on Homepage?',
+            name: 'homepage',
+            type: 'boolean'
         },
         {
             name: "tags",

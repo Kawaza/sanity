@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import Banner from "../components/Banner";
 import Experience from "../components/Experience";
 import Project from "../components/Projects"
-import Footer from "../components/Footer"
+import ContactUs from "../components/Contact"
 import { Html5Original, Css3Original, JavascriptOriginal, WordpressPlain, ReactOriginal, TailwindcssOriginal, DiscordjsOriginal, PhpPlain, GitOriginal   } from 'devicons-react';
 
 
@@ -54,11 +54,11 @@ export default function Home() {
         );
       };
 
-    return (
+        return (
         <div>
             <Banner />
-            <section className="bg-gray-900 py-2 pt-20">
-            <FadeInOnScroll>
+            <section className="bg-gray-900 py-2 pt-20" id="about-me">
+                <FadeInOnScroll>
                 <h2 className="text-4xl md:text-5xl font-bold mb-8 text-white text-center">
                     About <span className="blue-text leading-snug">Me</span>
                 </h2>
@@ -91,7 +91,7 @@ export default function Home() {
                 </div>
             </FadeInOnScroll>
             </section>
-            <section className="bg-gray-900 pb-1">
+            <section className="bg-gray-900 pb-1" id="my-skills">
                 <FadeInOnScroll>
                 <div className="">
                 <h2 className="text-4xl md:text-5xl font-bold mb-10 text-white text-center">
@@ -153,7 +153,7 @@ export default function Home() {
                 </div>
             </FadeInOnScroll>
             </section>
-            <section className="bg-gray-900 pt-10 md:pt-20 py-1">
+            <section className="bg-gray-900 pt-10 md:pt-20 py-1" id="more-about-me">
                 <FadeInOnScroll>
                 <div className="">
                     <h2 className="text-4xl md:text-5xl font-bold mb-8 text-white text-center">
@@ -165,13 +165,22 @@ export default function Home() {
                  </FadeInOnScroll>
             </section>
 
-            <section className="bg-gray-900 pb-1">
+            <section className="bg-gray-900 pb-1" id="projects">
                     <h2 className="text-4xl md:text-5xl font-bold mb-10 text-white text-center ">
                         My <span className="blue-text leading-snug">Projects</span>
                     </h2>
                 <FadeInOnScroll>
                     <Project></Project>
                 </FadeInOnScroll>
+            </section>
+
+            <section className="bg-gray-900 py-2 pt-20" id="contact">
+            <FadeInOnScroll>
+                <h2 className="text-4xl md:text-5xl font-bold mb-8 text-white text-center">
+                    Get In <span className="blue-text leading-snug">Contact</span>
+                </h2>
+                <ContactUs></ContactUs>
+            </FadeInOnScroll>
             </section>
         </div>
     )

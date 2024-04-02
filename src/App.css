@@ -5,6 +5,10 @@
   --customblue: #00AEEF;
   --darkblue: rgb(12 16 26);
 }
+html {
+  scroll-behavior: smooth;
+  background-color: rgb(17 24 39);
+}
 
 /*Defaults*/
 h1,h2,h3,h4,h5, body {font-family: "Poppins", sans-serif; font-weight: 600;}
@@ -20,6 +24,7 @@ p {font-family: "Poppins", sans-serif; font-weight: 300; color:#bcc3d3}
   background-color: var(--customblue);
   border-color: var(--customblue);
 }
+.blue-background {background-color: var(--customblue);;}
 .hover-blue-text:hover {
   color: var(--customblue);
   margin-left: 0px;
@@ -37,6 +42,8 @@ span {
 .w-fit {width: fit-content;}
 .shadow {box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);}
 .no-drag {pointer-events: none;}
+::placeholder{color: grey;}
+
 
 /*Navigation*/
 .menu-bars {
@@ -85,7 +92,7 @@ span {
 }
 
 /*banner*/
-.icon-hover:hover svg {stroke: var(--customblue);}
+.icon-hover:hover svg, .icon-hover:hover svg path {stroke: var(--customblue);}
 .icon-line {background-color: var(--customblue)}
 .banner-max-width {max-width: 100rem}
 .banner-text-width {

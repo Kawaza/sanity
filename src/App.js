@@ -1,11 +1,11 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import React from 'react';
 import Home from "./pages/Home";
-import About from "./pages/About";
 import Project from "./pages/projects/project";
-import Post from "./pages/Post";
+import Blog from "./pages/Blog";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer"
+import Projects from "./pages/AllProjects"
 
 
 function App() {
@@ -14,9 +14,10 @@ function App() {
     <NavBar></NavBar>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/#about" element={<Home />} />
           <Route path="/projects/:slug" element={<Project />} />
-          <Route path="/post" element={<Post />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/projects" element={<Projects />} />
         </Routes>
         <Footer></Footer>
   </BrowserRouter>

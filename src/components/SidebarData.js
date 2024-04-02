@@ -3,12 +3,7 @@ import React from 'react';
 export const SidebarData = [
   {
     title: 'Home',
-    path: '/',
-    cName: 'nav-text'
-  },
-  {
-    title: 'About',
-    path: '/about',
+    path: '/#banner',
     cName: 'nav-text'
   },
   {
@@ -17,8 +12,8 @@ export const SidebarData = [
     cName: 'nav-text'
   },
   {
-    title: 'Post',
-    path: '/post',
+    title: 'Get In Touch',
+    path: '/#contact',
     cName: 'nav-text'
   }
 ];
