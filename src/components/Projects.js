@@ -61,7 +61,7 @@ import { ArrowUpRightIcon } from '@heroicons/react/24/solid'
                         >
                                 {projects.map((project) => (
                                     <div className="px-4 py-4">
-                                        <a href={`/projects/${project.slug}`}>
+                                        <a href={`/projects/${project.slug.current}`}>
                                         <div className={`project custom-border px-8 py-8 rounded-2xl custom-background cursor-pointer ${project.title}`} key={project.title}>
                                             <img className="rounded-2xl shadow w-full" src={project.imageUrl} alt={project.title} />
                                             <h4 className="blue-text leading text-sm pt-6 pb-3 uppercase">{project.builtWith}</h4>

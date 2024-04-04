@@ -14,7 +14,7 @@ const ProjectList = () => {
 
     useEffect(() => {
         client
-            .fetch(`*[_type == "Project" && slug == $slug] {title, slug, link,techDescription, projectDescription,  description, builtWith, "imageUrl": image.asset->url, "bannerimage": bannerimage.asset->url}`, { slug })
+            .fetch(`*[_type == "Project" && slug.current == $slug] {title, slug, link,techDescription, projectDescription,  description, builtWith, "imageUrl": image.asset->url, "bannerimage": bannerimage.asset->url}`, { slug })
             .then((data) => {
                 if (data.length > 0) {
                     setProject(data[0]);

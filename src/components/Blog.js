@@ -9,15 +9,15 @@ const client = createClient({
     useCdn: true,
 });
 
-const AllProjectList = () => {
-    const [projects, setProject] = useState([]);
+const AllBlogsList = () => {
+    const [blogs, setBlog] = useState([]);
   
     useEffect(() => {
         client
-            .fetch(`*[_type == "Project"] | order(_createdAt asc) {title, slug, description, builtWith, "imageUrl": image.asset->url}`)
+            .fetch(`*[_type == "post"] | order(_createdAt asc) {title, slug, body, "imageUrl": mainImage.asset->url}`)
             .then((data) => {
                 console.log(data); // Log the entire response
-                setProject(data);
+                setBlog(data);
             })
             .catch((error) => {
                 console.error('Error fetching data:', error);
@@ -71,7 +71,7 @@ const AllProjectList = () => {
     };
 
     // Function to chunk the projects array into groups of three
-    const chunkProjects = (arr, size) => {
+    const chunkBlogs = (arr, size) => {
         return arr.reduce((acc, _, i) => {
             if (i % size === 0) {
                 acc.push(arr.slice(i, i + size));
@@ -81,7 +81,7 @@ const AllProjectList = () => {
     };
 
     // Chunk the projects into groups of three
-    const groupedProjects = chunkProjects(projects, 3);
+    const groupedBlogs = chunkBlogs(blogs, 3);
 
     return (
         <div className="mx-auto pb-20 pt-6 bg-gray-900">
@@ -94,17 +94,16 @@ const AllProjectList = () => {
             </style>
             <>
                 <div className="container mx-auto pb-0">
-                    {groupedProjects.map((group, index) => (
+                    {groupedBlogs.map((group, index) => (
                         <FadeInOnScroll key={index}>
                             <div className="grid grid-cols-3">
-                                {group.map((project) => (
-                                    <div className="px-4 py-4" key={project.title}>
-                                        <a href={`/projects/${project.slug}`}>
-                                            <div className={`project custom-border px-8 py-8 rounded-2xl custom-background cursor-pointer ${project.title}`}>
-                                                <img className="rounded-2xl shadow w-full" src={project.imageUrl} alt={project.title} />
-                                                <h4 className="blue-text leading text-sm pt-6 pb-3 uppercase">{project.builtWith}</h4>
-                                                <h3 className="text-white leading-9 text-2xl pt-2 duration-300 relative duration-300">
-                                                    {project.description}
+                                {group.map((blog) => (
+                                    <div className="px-4 py-4" key={blog.title}>
+                                        <a href={`/projects/${blog.slug.current}`}>
+                                            <div className={`project custom-border px-8 py-8 rounded-2xl custom-background cursor-pointer ${blog.title}`}>
+                                                <img className="rounded-2xl shadow w-full" src={blog.imageUrl} alt={blog.title} />
+                                                <h3 className="text-white leading-9 text-2xl pt-2 duration-300 relative duration-300 pt-6">
+                                                    {blog.title}
                                                     <span className="absolute pt-2 pl-3 arrow-stroke duration-200 opacity-0 bottom-0"><ArrowUpRightIcon className="h-0 duration-300" /></span>
                                                 </h3>
                                             </div>
@@ -120,4 +119,4 @@ const AllProjectList = () => {
     );
 };
 
-export default AllProjectList;
+export default AllBlogsList;
