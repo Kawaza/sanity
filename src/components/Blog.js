@@ -14,7 +14,7 @@ const AllBlogsList = () => {
   
     useEffect(() => {
         client
-            .fetch(`*[_type == "post"] | order(_createdAt asc) {title, slug, body, "imageUrl": mainImage.asset->url}`)
+            .fetch(`*[_type == "post"] | order(_createdAt asc) {title, slug, publishedAt, excerpt, body, "imageUrl": mainImage.asset->url}`)
             .then((data) => {
                 console.log(data); // Log the entire response
                 setBlog(data);
@@ -99,12 +99,19 @@ const AllBlogsList = () => {
                             <div className="grid grid-cols-3">
                                 {group.map((blog) => (
                                     <div className="px-4 py-4" key={blog.title}>
-                                        <a href={`/projects/${blog.slug.current}`}>
-                                            <div className={`project custom-border px-8 py-8 rounded-2xl custom-background cursor-pointer ${blog.title}`}>
-                                                <img className="rounded-2xl shadow w-full" src={blog.imageUrl} alt={blog.title} />
+                                        <a href={`/blog/${blog.slug.current}`}>
+                                            <div className={`blog custom-border px-8 py-8 rounded-2xl custom-background cursor-pointer ${blog.title}`}>
+                                                <img className="rounded-2xl w-full" src={blog.imageUrl} alt={blog.title} />
+                                                <h4 className="blue-text leading text-sm pt-6 pb-0 uppercase">
+                                                  {(() => {
+                                                    const date = new Date(blog.publishedAt);
+                                                    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                                                    return date.toLocaleDateString('en-US', options);
+                                                  })()}
+                                                </h4>
                                                 <h3 className="text-white leading-9 text-2xl pt-2 duration-300 relative duration-300 pt-6">
                                                     {blog.title}
-                                                    <span className="absolute pt-2 pl-3 arrow-stroke duration-200 opacity-0 bottom-0"><ArrowUpRightIcon className="h-0 duration-300" /></span>
+                                                <p className="text-white leading-9 pt-1 text-base duration-300 relative duration-300 pt-6">{blog.excerpt}</p>
                                                 </h3>
                                             </div>
                                         </a>

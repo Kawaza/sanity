@@ -6,6 +6,7 @@ import Blog from "./pages/Blog";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer"
 import Projects from "./pages/AllProjects"
+import SinglePost from "./pages/SinglePost"
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="/#about" element={<Home />} />
           <Route path="/projects/:slug" element={<Project />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<SinglePost />} />
           <Route path="/projects" element={<Projects />} />
         </Routes>
         <Footer></Footer>

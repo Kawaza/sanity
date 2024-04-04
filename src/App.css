@@ -146,6 +146,7 @@ span {
 .project:hover h3 {color: var(--customblue);}
 .project:hover h3 .arrow-stroke { stroke: var(--customblue); opacity: 1; bottom: 4px}
 .project:hover h3 .arrow-stroke svg  {height: 1.5rem;}
+.blog:hover h3 {color: var(--customblue);}
 
 /*HOMEPAGE*/
 .custom-border {
@@ -165,4 +166,34 @@ span {
 @media (max-width: 980px) {
   .react-multiple-carousel__arrow--right {right: 10px;}
   .react-multiple-carousel__arrow--left {left: 10px;}
+}
+
+
+
+.blog-styling {color: white}
+.blog-styling h1 {
+  font-size: 3rem;
+  padding-bottom: 20px;
+}
+.blog-styling h2 {
+  font-size: 2rem;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.blog-styling br {
+  display: block; /* makes it have a width */
+  content: ""; /* clears default height */
+  margin-top: 16px; /* change this to whatever height you want it */
+}
+.blog-styling p {line-height: 2em; padding: 6px 0px}
+.blog-styling ul li {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  color: #bcc3d3;
+  padding: 6px 0px;
+}
+.blog-styling ul li:before {
+  content: "\2022"; /* Unicode character for a bullet point */
+  display: inline-block;
+  width: 1em; /* Adjust size of the bullet point */
 }
