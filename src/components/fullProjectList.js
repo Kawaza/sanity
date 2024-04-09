@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
 import { createClient } from "@sanity/client";
-import { useParams } from "react-router-dom";
 import { ArrowUpRightIcon } from '@heroicons/react/24/solid';
 
 const client = createClient({
