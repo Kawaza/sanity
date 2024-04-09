@@ -11,8 +11,15 @@ export default defineConfig({
   projectId: '051kmgbh',
   dataset: 'production',
 
-  plugins: [structureTool(), visionTool()],
-
+  plugins: [
+    structureTool(),
+    visionTool(),
+  ],
+  
+  project: {
+    basePath: '/studio'
+  },
+  
   schema: {
     types: schemaTypes,
   },
