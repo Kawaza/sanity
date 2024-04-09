@@ -1,4 +1,4 @@
-import imageBanner from "../images/banner.jpeg"
+import imageBanner from "../../images/banner.jpeg"
 import 'react-social-icons/linkedin'
 import 'react-social-icons/github'
 

@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import Blog from "../components/Blog";
+import Blog from "../components/fullBlogList";
 
 
 export default function Home() {

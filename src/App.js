@@ -1,11 +1,11 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import React from 'react';
 import Home from "./pages/Home";
-import Project from "./pages/projects/project";
+import Project from "./pages/SingleProject";
 import Blog from "./pages/Blog";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer"
-import Projects from "./pages/AllProjects"
+import Projects from "./pages/Projects"
 import SinglePost from "./pages/SinglePost"
 
 

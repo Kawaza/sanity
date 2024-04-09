@@ -1,8 +1,8 @@
 import React, { useRef, useEffect, useState } from "react";
-import Banner from "../components/Banner";
-import Experience from "../components/Experience";
-import Project from "../components/Projects"
-import ContactUs from "../components/Contact"
+import Banner from "../components/sections/Banner";
+import Experience from "../components/sections/Experience";
+import Project from "../components/sections/Projects"
+import ContactUs from "../components/sections/Contact"
 import { Html5Original, Css3Original, JavascriptOriginal, WordpressPlain, ReactOriginal, TailwindcssOriginal, DiscordjsOriginal, PhpPlain, GitOriginal   } from 'devicons-react';
 
 

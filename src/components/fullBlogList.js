@@ -1,7 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
 import { createClient } from "@sanity/client";
-import { useParams } from "react-router-dom";
-import { ArrowUpRightIcon } from '@heroicons/react/24/solid';
 
 const client = createClient({
     projectId: '051kmgbh',
@@ -11,7 +9,6 @@ const client = createClient({
 
 const AllBlogsList = () => {
     const [blogs, setBlog] = useState([]);
-  
     useEffect(() => {
         client
             .fetch(`*[_type == "post"] | order(_createdAt asc) {title, slug, publishedAt, excerpt, body, "imageUrl": mainImage.asset->url}`)
