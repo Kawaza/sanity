@@ -5,6 +5,7 @@ const client = createClient({
     projectId: '051kmgbh',
     dataset: 'production',
     useCdn: true,
+    apiVersion: "2024-01-01",
 });
 
 const AllBlogsList = () => {
@@ -13,7 +14,6 @@ const AllBlogsList = () => {
         client
             .fetch(`*[_type == "post"] | order(_createdAt asc) {title, slug, publishedAt, excerpt, body, "imageUrl": mainImage.asset->url}`)
             .then((data) => {
-                console.log(data); // Log the entire response
                 setBlog(data);
             })
             .catch((error) => {

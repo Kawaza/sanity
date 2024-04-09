@@ -26,17 +26,17 @@ const ContactUs = () => {
     <div className="container px-10 py-10 text-white mx-auto gap-10 md:gap-40 items-center mb-20 md:mb-40 max-w-5xl p-8">
         <div>
             <div>
-            <form class="w-full" ref={form} onSubmit={sendEmail}>
-                <div class="flex flex-wrap -mx-3 mb-6">
-                    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                    <input class="appearance-none block w-full bg-gray-200 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none custom-background text-sm font-normal color-white py-4" type="text" name="user_name" placeholder="Name" required></input>
+            <form className="w-full" ref={form} onSubmit={sendEmail}>
+                <div className="flex flex-wrap -mx-3 mb-6">
+                    <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                    <input className="appearance-none block w-full bg-gray-200 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none custom-background text-sm font-normal color-white py-4" type="text" name="user_name" placeholder="Name" required></input>
                     </div>
-                    <div class="w-full md:w-1/2 px-3">
-                    <input class="appearance-none block w-full bg-gray-200 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none custom-background text-sm font-normal color-white py-4" type="email" name="user_email" placeholder="Email" required></input>
+                    <div className="w-full md:w-1/2 px-3">
+                    <input className="appearance-none block w-full bg-gray-200 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none custom-background text-sm font-normal color-white py-4" type="email" name="user_email" placeholder="Email" required></input>
                     </div>
                 </div>
-                <div class="flex flex-wrap -mx-3 mb-2">
-                    <div class="w-full px-3 mb-6 md:mb-0">
+                <div className="flex flex-wrap -mx-3 mb-2">
+                    <div className="w-full px-3 mb-6 md:mb-0">
                         <textarea name="message" className='appearance-none block w-full bg-gray-200 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none custom-background text-sm font-normal color-white py-4 h-40' placeholder="Your Message" required/>
                     </div>
                 </div>

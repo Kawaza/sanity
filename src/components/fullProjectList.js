@@ -7,6 +7,7 @@ const client = createClient({
     projectId: '051kmgbh',
     dataset: 'production',
     useCdn: true,
+    apiVersion: "2024-01-01",
 });
 
 const AllProjectList = () => {

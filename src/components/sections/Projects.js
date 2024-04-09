@@ -29,6 +29,7 @@ import { ArrowUpRightIcon } from '@heroicons/react/24/solid'
         projectId: '051kmgbh',
         dataset: 'production',
         useCdn: true,
+        apiVersion: "2024-01-01",
     });
 
     const ProjectList = () => {
@@ -38,7 +39,6 @@ import { ArrowUpRightIcon } from '@heroicons/react/24/solid'
           client
             .fetch(`*[_type == "Project" && homepage == true] | order(_createdAt asc) {title, slug, description, builtWith, "imageUrl": image.asset->url}`)
             .then((data) => {
-            console.log(data); // Log the entire response
               setProject(data);
             })
             .catch((error) => {
@@ -59,8 +59,8 @@ import { ArrowUpRightIcon } from '@heroicons/react/24/solid'
                             dotListClass="custom-dot-list-style"
                             className="pb-0 md:pb-6"
                         >
-                                {projects.map((project) => (
-                                    <div className="px-4 py-4">
+                                {projects.map((project, index) => (
+                                    <div className="px-4 py-4" key={index}>
                                         <a href={`/projects/${project.slug.current}`}>
                                         <div className={`project custom-border px-8 py-8 rounded-2xl custom-background cursor-pointer ${project.title}`} key={project.title}>
                                             <img className="rounded-2xl shadow w-full" src={project.imageUrl} alt={project.title} />

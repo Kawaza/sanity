@@ -6,6 +6,7 @@ const client = createClient({
     projectId: '051kmgbh',
     dataset: 'production',
     useCdn: true,
+    apiVersion: "2024-01-01",
 });
 
 const ProjectList = () => {
@@ -26,8 +27,6 @@ const ProjectList = () => {
                 console.error('Error fetching data:', error);
             });
     }, [slug]);
-
-    console.log(project); // Log outside of useEffect
 
     return (
         <div className="mx-auto pb-20 pt-56 bg-gray-900">

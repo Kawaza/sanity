@@ -75,15 +75,15 @@ export default function About() {
                             alt="Banner"
                         /> */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 animate-fade-up animate-once adjust-gap-size">
-                        <div class="flex align-center">
-                                <div class="display-2 mg-right-12px text-6xl md:text-8xl blue-text adjust-text-size self-center">5</div>
+                        <div className="flex align-center">
+                                <div className="display-2 mg-right-12px text-6xl md:text-8xl blue-text adjust-text-size self-center">5</div>
                                 <span className="text-3xl self-center blue-text">+</span>
-                                <div class="text-300 bold text-xl self-center ml-4">Years of <br/> Experience</div>
+                                <div className="text-300 bold text-xl self-center ml-4">Years of <br/> Experience</div>
                             </div>
-                            <div class="flex align-center">
-                                <div class="display-2 mg-right-12px text-6xl md:text-8xl blue-text adjust-text-size self-center">30</div> 
+                            <div className="flex align-center">
+                                <div className="display-2 mg-right-12px text-6xl md:text-8xl blue-text adjust-text-size self-center">30</div> 
                                 <span className="text-3xl self-center blue-text">+</span>
-                                <div class="text-300 bold text-xl self-center ml-4">Successful <br/> Projects</div>
+                                <div className="text-300 bold text-xl self-center ml-4">Successful <br/> Projects</div>
                             </div>
                         </div>
                         <p className="py-4 leading-7 pb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In placerat lacus quis tincidunt fermentum. Nulla malesuada.</p>
