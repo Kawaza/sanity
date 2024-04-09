@@ -1,3 +1,3 @@
 [build]
-  command = "sanity build"
+  command = "cd sanity && sanity build"
   publish = "dist"
