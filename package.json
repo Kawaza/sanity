@@ -31,7 +31,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "watch": "tailwindcss build -i ./src/index.css",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build-and-deploy": "npm run build && cd sanity && sanity deploy"
   },
   "eslintConfig": {
     "extends": [
