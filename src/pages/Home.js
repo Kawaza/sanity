@@ -68,8 +68,8 @@ export default function Home() {
                             <span className="blue-text leading-snug">Let's Create</span> <br/>
                             <span>Something Great.</span>
                         </h3>
-                        <p className="pb-5 leading-7 text-lg">Hello, My name is Aaron, and I'm a Web Developer in Edmonton Alberta. I have strong expertise in Web Development from designing to deployment and I love to help groups and businesses bring their ideas to life.</p>
-                        <p className="pb-4 leading-7 text-lg">I love creating things and I have a lot of side projects I work on for fun, my biggest one being my discord bot. However, if I'm not busy working on those I'm playing games, or off camping with friends and family.</p>
+                        <p className="pb-5 leading-7 text-lg">Hello, my name is Aaron, and I'm a Web Developer in Edmonton, Alberta. With five years of hands-on experience in the field, I have cultivated a deep passion for web development. I love to learn and creating new things which I showcase in this portfolio website.</p>
+                        <p className="pb-4 leading-7 text-lg">Feel free to explore my projects I've worked on over the years, or check out my blog where I share insights and reflections on my journey and experiences in creating these projects.</p>
 
                         <div className="line mt-6"></div>
                     </div>
@@ -86,7 +86,7 @@ export default function Home() {
                                 <div className="text-300 bold text-xl self-center ml-4">Successful <br/> Projects</div>
                             </div>
                         </div>
-                        <p className="py-4 leading-7 pb-6 text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In placerat lacus quis tincidunt fermentum. Nulla malesuada.</p>
+                        <p className="py-4 leading-7 pb-6 text-lg">With half a decade of dedicated work in web development, I've had the privilege of working on over 30+ successful projects spanning various industries and client needs. Each project has been an opportunity to showcase my creativity and allowed me continue to learn.</p>
                     </div>
                 </div>
             </FadeInOnScroll>
@@ -156,10 +156,9 @@ export default function Home() {
             <section className="bg-gray-900 pt-10 md:pt-20 py-1" id="more-about-me">
                 <FadeInOnScroll>
                 <div className="">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-8 text-white text-center">
+                    <h2 className="text-4xl md:text-5xl font-bold mb-12 text-white text-center">
                             More <span className="blue-text leading-snug">About</span> Me
                         </h2>
-                        <p className="pb-16 mx-auto max-w-3xl text-center px-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In placerat lacus quis tincidunt fermentum. Nulla malesuada.</p>
                         <Experience></Experience>
                     </div>
                  </FadeInOnScroll>
