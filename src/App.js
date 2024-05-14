@@ -7,6 +7,9 @@ import NavBar from "./components/NavBar";
 import Footer from "./components/Footer"
 import Projects from "./pages/Projects"
 import SinglePost from "./pages/SinglePost"
+import ReactGA from "react-ga4";
+
+ReactGA.initialize("G-8KJWWXKVR8");
 
 
 function App() {

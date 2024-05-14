@@ -1,6 +1,12 @@
 import React, { useEffect, useState, useRef } from "react";
 import { createClient } from "@sanity/client";
 import { ArrowUpRightIcon } from '@heroicons/react/24/solid';
+import ReactGA from "react-ga4";
+ReactGA.send({ 
+  hitType: "pageview", 
+  page: window.location.pathname, 
+  title: "Project Page" 
+});
 
 const client = createClient({
     projectId: '051kmgbh',
