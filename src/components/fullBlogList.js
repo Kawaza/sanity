@@ -93,7 +93,7 @@ const AllBlogsList = () => {
                 <div className="container mx-auto pb-0">
                     {groupedBlogs.map((group, index) => (
                         <FadeInOnScroll key={index}>
-                            <div className="grid grid-cols-3">
+                            <div className="grid grid-cols-1 lg:grid-cols-3">
                                 {group.map((blog) => (
                                     <div className="px-4 py-4" key={blog.title}>
                                         <a href={`/blog/${blog.slug.current}`}>

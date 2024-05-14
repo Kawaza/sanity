@@ -96,7 +96,7 @@ const AllProjectList = () => {
                 <div className="container mx-auto pb-0">
                     {groupedProjects.map((group, index) => (
                         <FadeInOnScroll key={index}>
-                            <div className="grid grid-cols-3">
+                            <div className="grid grid-cols-1 lg:grid-cols-3">
                                 {group.map((project) => (
                                     <div className="px-4 py-4" key={project.title}>
                                         <a href={`/projects/${project.slug.current}`}>
