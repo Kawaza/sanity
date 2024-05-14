@@ -2,11 +2,17 @@ import React, { useEffect, useState, useRef } from "react";
 import { createClient } from "@sanity/client";
 import { ArrowUpRightIcon } from '@heroicons/react/24/solid';
 import ReactGA from "react-ga4";
-ReactGA.send({ 
-  hitType: "pageview", 
-  page: window.location.pathname, 
-  title: "Project Page" 
-});
+
+projectClick = () => {
+  ReactGA.event({
+    category: "onClick",
+    action: "onClick",
+    label: "Clicked a project", // optional
+    value: 99, // optional, must be a number
+    nonInteraction: true, // optional, true/false
+    transport: "xhr", // optional, beacon/xhr/image
+  });
+}
 
 const client = createClient({
     projectId: '051kmgbh',
@@ -105,7 +111,7 @@ const AllProjectList = () => {
                             <div className="grid grid-cols-1 lg:grid-cols-3">
                                 {group.map((project) => (
                                     <div className="px-4 py-4" key={project.title}>
-                                        <a href={`/projects/${project.slug.current}`}>
+                                        <a href={`/projects/${project.slug.current}`} onClick={this.projectClick}>
                                             <div className={`project custom-border px-8 py-8 rounded-2xl custom-background cursor-pointer ${project.title}`}>
                                                 <img className="rounded-2xl shadow w-full" src={project.imageUrl} alt={project.title} />
                                                 <h4 className="blue-text leading text-sm pt-6 pb-3 uppercase">{project.builtWith}</h4>
