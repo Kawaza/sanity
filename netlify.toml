@@ -4,8 +4,8 @@ to = "/index.html"
 status = 200
 
 [build]
-  functions = "netlify/functions" # Directory for your functions
-  publish = "build" # Your build output directory, adjust if necessary
+  functions = "netlify/functions"
+  publish = "build" # Adjust if your build directory is different
 
 [[redirects]]
   from = "/api/reports/*"
