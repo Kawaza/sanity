@@ -1,14 +1,22 @@
 [[redirects]]
-from = "/*"
-to = "/index.html"
-status = 200
+  from = "/*"
+  to = "/index.html"
+  status = 200
 
 [build]
-  functions = "netlify/functions"
-  publish = "build" # Adjust if your build directory is different
+  functions = "serverless/"
+  publish = "public" # Adjust if your build directory is different
 
 [[redirects]]
   from = "/api/reports/*"
   to = "/api/reports/:splat"
   status = 200
   force = true
+
+[functions]
+  node_bundler = "esbuild"
+  external_node_modules = ["lighthouse", "chrome-launcher"]
+
+  [functions.generate-reports]
+    memory = 1024
+    timeout = 120
