@@ -28,8 +28,7 @@ const AllProjectList = () => {
     const projectClick = () => {
       ReactGA.event({
         category: "onClick",
-        action: "onClick",
-        label: "Clicked a project", // optional
+        action: "Clicked a project",
         value: 99, // optional, must be a number
         nonInteraction: true, // optional, true/false
         transport: "xhr", // optional, beacon/xhr/image

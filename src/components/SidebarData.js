@@ -15,6 +15,11 @@ export const SidebarData = [
     cName: 'nav-text'
   },
   {
+    title: 'Lighthouse App',
+    path: '/lighthouse-app',
+    cName: 'nav-text'
+  },
+  {
     title: 'Get In Touch',
     path: '/#contact',
     cName: 'nav-text'
