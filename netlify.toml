@@ -5,7 +5,7 @@
 
 [build]
   functions = "serverless/"
-  publish = "public" # Adjust if your build directory is different
+  publish = "build" # Adjust if your build directory is different
 
 [[redirects]]
   from = "/api/reports/*"
