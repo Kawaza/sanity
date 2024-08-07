@@ -3,14 +3,31 @@ const path = require('path');
 
 exports.handler = async function(event, context) {
     try {
-        // The reports are in the public/reports directory
-        const reportsDir = path.join(__dirname, '..', '..', 'public', 'reports');
-        
-        console.log('Attempting to access reports directory:', reportsDir);
+        console.log('Current directory:', __dirname);
+        console.log('Parent directory contents:', fs.readdirSync(path.join(__dirname, '..')));
+        console.log('Grandparent directory contents:', fs.readdirSync(path.join(__dirname, '..', '..')));
 
-        // Check if the reports directory exists
-        if (!fs.existsSync(reportsDir)) {
-            console.error('Reports directory does not exist:', reportsDir);
+        // Try different possible paths
+        const possiblePaths = [
+            path.join(__dirname, '..', '..', 'public', 'reports'),
+            path.join(__dirname, '..', 'public', 'reports'),
+            path.join(__dirname, 'public', 'reports'),
+            '/var/task/public/reports',
+            '/opt/build/repo/public/reports'
+        ];
+
+        let reportsDir;
+        for (const testPath of possiblePaths) {
+            console.log('Trying path:', testPath);
+            if (fs.existsSync(testPath)) {
+                reportsDir = testPath;
+                console.log('Found reports directory:', reportsDir);
+                break;
+            }
+        }
+
+        if (!reportsDir) {
+            console.error('Reports directory not found in any of the tested paths');
             return {
                 statusCode: 404,
                 body: JSON.stringify({ error: 'Reports directory not found' }),
