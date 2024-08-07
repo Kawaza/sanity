@@ -12,11 +12,3 @@
   to = "/.netlify/functions/:splat"
   status = 200
   force = true
-
-[functions]
-  node_bundler = "esbuild"
-  external_node_modules = ["lighthouse", "chrome-launcher"]
-
-[functions.generate-reports]
-  memory = 1024
-  timeout = 120

@@ -1,4 +1,4 @@
-import BulkLighthouse from "../components/bulkLighthouse";
+// import BulkLighthouse from "../components/bulkLighthouse";
 
 
 export default function Lighthouse() {
@@ -7,7 +7,7 @@ export default function Lighthouse() {
                 <h2 className="text-4xl md:text-5xl font-bold mb-8 text-white text-center">
                     Batch Report <span className="blue-text leading-snug">Lighthouse</span>
                 </h2>
-                <BulkLighthouse></BulkLighthouse>
+                {/* <BulkLighthouse></BulkLighthouse> */}
         </div>
     )
 }
