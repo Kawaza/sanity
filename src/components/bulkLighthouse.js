@@ -100,6 +100,9 @@ export default function Lighthouse() {
             console.error('Error handling file download or deletion:', error);
         }
     };
+    
+    
+    
 
 
 

@@ -1,6 +1,5 @@
 const path = require('path');
 const fs = require('fs');
-const archiver = require('archiver');
 
 exports.handler = async (event) => {
     let urls;
@@ -36,15 +35,15 @@ exports.handler = async (event) => {
             throw new Error('No URLs provided');
         }
 
-        const publicDir = path.join(__dirname, '../../../../build/reports'); // Adjust path as needed
+        const tempDir = '/tmp/reports';
 
-        if (!fs.existsSync(publicDir)) {
-            fs.mkdirSync(publicDir, { recursive: true });
+        if (!fs.existsSync(tempDir)) {
+            fs.mkdirSync(tempDir, { recursive: true });
         }
 
         console.log('Running Lighthouse...');
-        
-        // Dynamically import chrome-launcher and lighthouse
+
+        // Dynamic import for ES Modules
         const chromeLauncher = await import('chrome-launcher');
         const { default: lighthouse } = await import('lighthouse');
 
@@ -78,7 +77,7 @@ exports.handler = async (event) => {
                 const reportHtml = runnerResult.report; // Directly get the HTML report
                 
                 fs.writeFileSync(
-                    path.join(publicDir, `${domainName}_${name}.html`), 
+                    path.join(tempDir, `${domainName}_${name}.html`), 
                     reportHtml
                 );
             }
@@ -90,7 +89,7 @@ exports.handler = async (event) => {
 
         return {
             statusCode: 200,
-            body: JSON.stringify({ reportLink: `/reports/` }),
+            body: JSON.stringify({ reportLink: `/reports/` }), // Adjust if needed for serving
         };
     } catch (error) {
         console.error('Error generating Lighthouse reports:', error);
