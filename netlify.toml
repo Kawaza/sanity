@@ -5,7 +5,7 @@
 
 [build]
   functions = "serverless/"
-  publish = "public"
+  publish = "build"
 
 [[redirects]]
   from = "/api/reports/*"

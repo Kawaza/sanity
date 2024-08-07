@@ -4,7 +4,7 @@ const path = require('path');
 exports.handler = async function(event, context) {
     try {
         console.log("dirname is "+ __dirname);
-        const reportsDir = path.resolve(__dirname, '../../../../public/reports');
+        const reportsDir = path.resolve(__dirname, '../../../../build/reports');
         console.log('Reports Directory:', reportsDir); // Debug line
         const files = fs.readdirSync(reportsDir);
         console.log('Files in Directory:', files); // Debug line
