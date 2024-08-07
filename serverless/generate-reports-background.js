@@ -1,3 +1,4 @@
+const puppeteer = require('puppeteer');
 const path = require('path');
 const fs = require('fs');
 
@@ -35,32 +36,24 @@ exports.handler = async (event) => {
             throw new Error('No URLs provided');
         }
 
-        const tempDir = '/tmp/reports';
+        const reportsDir = '/tmp/reports'; // Use /tmp for Netlify functions
 
-        if (!fs.existsSync(tempDir)) {
-            fs.mkdirSync(tempDir, { recursive: true });
+        if (!fs.existsSync(reportsDir)) {
+            fs.mkdirSync(reportsDir, { recursive: true });
         }
 
-        console.log('Running Lighthouse...');
+        console.log('Running Lighthouse with Puppeteer...');
+        
+        // Launch Puppeteer
+        const browser = await puppeteer.launch({ headless: true });
+        const page = await browser.newPage();
 
-        // Dynamic import for ES Modules
-        const chromeLauncher = await import('chrome-launcher');
-        const { default: lighthouse } = await import('lighthouse');
-
-        console.log('Launching Chrome...');
-        const chrome = await chromeLauncher.launch({ chromeFlags: ['--headless'] });
-        console.log('Chrome launched on port:', chrome.port);
-
-        const options = {
-            logLevel: 'info',
-            output: 'html',
-            onlyCategories: ['performance', 'accessibility', 'best-practices', 'seo'],
-            port: chrome.port,
-        };
+        const lighthouse = require('lighthouse');
+        const { URL } = require('url');
 
         const deviceConfigs = [
-            { name: 'desktop', config: { ...options, emulatedFormFactor: 'desktop' } },
-            { name: 'mobile', config: { ...options, emulatedFormFactor: 'mobile' } },
+            { name: 'desktop', config: { emulatedFormFactor: 'desktop' } },
+            { name: 'mobile', config: { emulatedFormFactor: 'mobile' } },
         ];
 
         for (const url of urls) {
@@ -73,23 +66,30 @@ exports.handler = async (event) => {
 
             for (const { name, config } of deviceConfigs) {
                 console.log(`Running Lighthouse for ${name} ${url}`);
-                const runnerResult = await lighthouse(url, config);
-                const reportHtml = runnerResult.report; // Directly get the HTML report
                 
+                const runnerResult = await lighthouse(url, {
+                    port: new URL(browser.wsEndpoint()).port,
+                    output: 'html',
+                    onlyCategories: ['performance', 'accessibility', 'best-practices', 'seo'],
+                    ...config
+                });
+
+                const reportHtml = runnerResult.report; // Directly get the HTML report
+
                 fs.writeFileSync(
-                    path.join(tempDir, `${domainName}_${name}.html`), 
+                    path.join(reportsDir, `${domainName}_${name}.html`), 
                     reportHtml
                 );
             }
         }
 
-        await chrome.kill();
+        await browser.close();
 
         console.log('HTML files created successfully');
 
         return {
             statusCode: 200,
-            body: JSON.stringify({ reportLink: `/reports/` }), // Adjust if needed for serving
+            body: JSON.stringify({ reportLink: `/reports/` }),
         };
     } catch (error) {
         console.error('Error generating Lighthouse reports:', error);
