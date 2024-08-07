@@ -1,46 +1,36 @@
 const fs = require('fs');
 const path = require('path');
 
+function exploreDirectory(dir, depth = 0) {
+    if (depth > 3) return; // Limit depth to avoid infinite recursion
+    console.log(`Exploring ${dir}:`);
+    const items = fs.readdirSync(dir);
+    items.forEach(item => {
+        const fullPath = path.join(dir, item);
+        const stats = fs.statSync(fullPath);
+        if (stats.isDirectory()) {
+            console.log(`  DIR: ${item}`);
+            exploreDirectory(fullPath, depth + 1);
+        } else {
+            console.log(`  FILE: ${item}`);
+        }
+    });
+}
+
 exports.handler = async function(event, context) {
     try {
         console.log('Current directory:', __dirname);
-        console.log('Parent directory contents:', fs.readdirSync(path.join(__dirname, '..')));
-        console.log('Grandparent directory contents:', fs.readdirSync(path.join(__dirname, '..', '..')));
-
-        // Try different possible paths
-        const possiblePaths = [
-            path.join(__dirname, '..', '..', 'public', 'reports'),
-            path.join(__dirname, '..', 'public', 'reports'),
-            path.join(__dirname, 'public', 'reports'),
-            '/var/task/public/reports',
-            '/opt/build/repo/public/reports'
-        ];
-
-        let reportsDir;
-        for (const testPath of possiblePaths) {
-            console.log('Trying path:', testPath);
-            if (fs.existsSync(testPath)) {
-                reportsDir = testPath;
-                console.log('Found reports directory:', reportsDir);
-                break;
-            }
-        }
-
-        if (!reportsDir) {
-            console.error('Reports directory not found in any of the tested paths');
-            return {
-                statusCode: 404,
-                body: JSON.stringify({ error: 'Reports directory not found' }),
-            };
-        }
-
-        const files = fs.readdirSync(reportsDir);
-        console.log('Files in Reports Directory:', files);
-        const htmlFiles = files.filter(file => file.endsWith('.html'));
+        console.log('Process working directory:', process.cwd());
         
+        // Explore from different starting points
+        exploreDirectory(__dirname);
+        exploreDirectory(process.cwd());
+        exploreDirectory('/opt/build');
+        exploreDirectory('/var/task');
+
         return {
-            statusCode: 200,
-            body: JSON.stringify({ files: htmlFiles }),
+            statusCode: 404,
+            body: JSON.stringify({ error: 'Reports directory not found. Check logs for file system structure.' }),
         };
     } catch (error) {
         console.error('Error:', error);
