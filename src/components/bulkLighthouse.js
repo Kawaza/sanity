@@ -72,12 +72,17 @@ export default function Lighthouse() {
             const encodedFileName = encodeURIComponent(fileName);
     
             console.log('Starting file download...');
-            const a = document.createElement('a');
-            a.href = `/reports/${encodedFileName}`;
-            a.download = fileName;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
+            const response = await axios.get(`/.netlify/functions/serve-file?fileName=${encodedFileName}`, {
+                responseType: 'blob'
+            });
+    
+            const url = window.URL.createObjectURL(new Blob([response.data]));
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', fileName);
+            document.body.appendChild(link);
+            link.click();
+            link.parentNode.removeChild(link);
             console.log('File download triggered.');
     
             console.log('Deleting file...');
@@ -88,7 +93,7 @@ export default function Lighthouse() {
     
             // Optionally add a delay before fetching the files
             await new Promise(resolve => setTimeout(resolve, 500)); // Wait for 500ms
-            
+    
             console.log('Fetching updated file list...');
             fetchReportFiles();
         } catch (error) {

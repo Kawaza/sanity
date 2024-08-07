@@ -20,3 +20,6 @@
   [functions.generate-reports]
     memory = 1024
     timeout = 120
+
+[build.environment]
+REPORTS_BASE_PATH = "/opt/build/repo"  # This is an example path, adjust as needed
