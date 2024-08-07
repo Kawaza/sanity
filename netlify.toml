@@ -5,7 +5,7 @@
 
 [build]
   functions = "serverless/"
-  publish = "build" # Adjust if your build directory is different
+  publish = "build"
 
 [[redirects]]
   from = "/api/reports/*"
@@ -17,9 +17,6 @@
   node_bundler = "esbuild"
   external_node_modules = ["lighthouse", "chrome-launcher"]
 
-  [functions.generate-reports]
-    memory = 1024
-    timeout = 120
-
-[build.environment]
-REPORTS_BASE_PATH = "/opt/build/repo"  # This is an example path, adjust as needed
+[functions.generate-reports]
+  memory = 1024
+  timeout = 120

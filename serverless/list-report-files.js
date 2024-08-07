@@ -3,24 +3,11 @@ const path = require('path');
 
 exports.handler = async function(event, context) {
     try {
-        console.log('Current working directory:', process.cwd());
-        console.log('REPORTS_BASE_PATH:', process.env.REPORTS_BASE_PATH);
+        // The reports are in the public/reports directory
+        const reportsDir = path.join(__dirname, '..', '..', 'public', 'reports');
         
-        // Use REPORTS_BASE_PATH if set, otherwise fallback to process.cwd()
-        const basePath = process.env.REPORTS_BASE_PATH || process.cwd();
-        console.log('Base path:', basePath);
-        
-        // The reports should be in the 'public/reports' directory
-        const reportsDir = path.join(basePath, 'public', 'reports');
-        console.log('Reports Directory:', reportsDir);
+        console.log('Attempting to access reports directory:', reportsDir);
 
-        // List contents of the base path
-        console.log('Base path contents:', fs.readdirSync(basePath));
-
-        // List contents of the public directory
-        const publicDir = path.join(basePath, 'public');
-        console.log('Public directory contents:', fs.readdirSync(publicDir));
-        
         // Check if the reports directory exists
         if (!fs.existsSync(reportsDir)) {
             console.error('Reports directory does not exist:', reportsDir);
