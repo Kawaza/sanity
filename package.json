@@ -34,7 +34,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && cp -r public build/public",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "watch": "tailwindcss build -i ./src/index.css",
     "eject": "react-scripts eject",

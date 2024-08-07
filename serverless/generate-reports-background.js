@@ -36,10 +36,10 @@ exports.handler = async (event) => {
             throw new Error('No URLs provided');
         }
 
-        const publicDir = path.join(__dirname, '../../../../public/reports'); // Adjust path as needed
+        const reportsDir = path.join('/var/task/build/reports'); // Adjusted path
 
-        if (!fs.existsSync(publicDir)) {
-            fs.mkdirSync(publicDir, { recursive: true });
+        if (!fs.existsSync(reportsDir)) {
+            fs.mkdirSync(reportsDir, { recursive: true });
         }
 
         console.log('Running Lighthouse...');
@@ -76,9 +76,9 @@ exports.handler = async (event) => {
                 console.log(`Running Lighthouse for ${name} ${url}`);
                 const runnerResult = await lighthouse(url, config);
                 const reportHtml = runnerResult.report; // Directly get the HTML report
-                
+                 
                 fs.writeFileSync(
-                    path.join(publicDir, `${domainName}_${name}.html`), 
+                    path.join(reportsDir, `${domainName}_${name}.html`), 
                     reportHtml
                 );
             }
