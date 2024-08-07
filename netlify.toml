@@ -8,8 +8,8 @@
   publish = "build"
 
 [[redirects]]
-  from = "/api/reports/*"
-  to = "/api/reports/:splat"
+  from = "/.netlify/functions/*"
+  to = "/.netlify/functions/:splat"
   status = 200
   force = true
 
