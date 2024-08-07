@@ -3,13 +3,25 @@ const path = require('path');
 
 exports.handler = async function(event, context) {
     try {
-        // Use an environment variable for the base path, with a fallback
+        console.log('Current working directory:', process.cwd());
+        console.log('REPORTS_BASE_PATH:', process.env.REPORTS_BASE_PATH);
+        
+        // Use REPORTS_BASE_PATH if set, otherwise fallback to process.cwd()
         const basePath = process.env.REPORTS_BASE_PATH || process.cwd();
-        const reportsDir = path.resolve(basePath, 'public', 'reports');
+        console.log('Base path:', basePath);
         
-        console.log('Reports Directory:', reportsDir); // Debug line
+        // The reports should be in the 'public/reports' directory
+        const reportsDir = path.join(basePath, 'public', 'reports');
+        console.log('Reports Directory:', reportsDir);
+
+        // List contents of the base path
+        console.log('Base path contents:', fs.readdirSync(basePath));
+
+        // List contents of the public directory
+        const publicDir = path.join(basePath, 'public');
+        console.log('Public directory contents:', fs.readdirSync(publicDir));
         
-        // Check if the directory exists
+        // Check if the reports directory exists
         if (!fs.existsSync(reportsDir)) {
             console.error('Reports directory does not exist:', reportsDir);
             return {
@@ -19,7 +31,7 @@ exports.handler = async function(event, context) {
         }
 
         const files = fs.readdirSync(reportsDir);
-        console.log('Files in Directory:', files); // Debug line
+        console.log('Files in Reports Directory:', files);
         const htmlFiles = files.filter(file => file.endsWith('.html'));
         
         return {
@@ -27,7 +39,7 @@ exports.handler = async function(event, context) {
             body: JSON.stringify({ files: htmlFiles }),
         };
     } catch (error) {
-        console.error('Error:', error); // Debug line
+        console.error('Error:', error);
         return {
             statusCode: 500,
             body: JSON.stringify({ error: 'Unable to list files', details: error.message }),
